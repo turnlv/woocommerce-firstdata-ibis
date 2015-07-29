@@ -86,7 +86,7 @@ function firstdata_init() {
                 'cert_path'       => array(
                     'title'       => __('Certificate path', 'woocommerce'),
                     'type'        => 'text',
-					'default'	  => '',
+					'default'	  => get_theme_root().'/your-theme-name/1234567keystore.pem',
                     'description' => __('Please provide certificate path (*keystore.pem)', 'woocommerce'),
                 ),
 				'cert_password'       => array(
