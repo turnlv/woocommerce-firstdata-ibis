@@ -63,6 +63,8 @@ function firstdata_init() {
         }
 		
 		function init_form_fields() {
+			$base = dirname(__FILE__);
+
 			$this->form_fields = array(
                 'enabled'     => array(
                     'title'       => __('Enable FirstData', 'woocommerce'),
@@ -86,8 +88,8 @@ function firstdata_init() {
                 'cert_path'       => array(
                     'title'       => __('Certificate path', 'woocommerce'),
                     'type'        => 'text',
-					'default'	  => get_theme_root().'/your-theme-name/1234567keystore.pem',
-                    'description' => __('Please provide certificate path (*keystore.pem)', 'woocommerce'),
+					'default'	  => dirname(dirname(dirname($base))) . '/your-path-to-the-keysyore-file/1234567keystore.pem',
+                    'description' => __('Please provide certificate path (*keystore.pem).<br> It should start with '.dirname(dirname(dirname($base))) . '/', 'woocommerce'),
                 ),
 				'cert_password'       => array(
                     'title'       => __('Certificate password', 'woocommerce'),
@@ -185,6 +187,7 @@ function firstdata_init() {
 				
 			}else if( isset($request['close_day'])){
 				$resp = $this->merchant->closeDay(); 
+				var_dump($resp);
 				echo (strstr($resp, 'RESULT:') ? 'OK' : 'NOK');
 			}else{
 				echo 2;
