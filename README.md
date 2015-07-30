@@ -1,9 +1,14 @@
-# woocommerce-firstdata-ibis
-WordPress WooCommerce payment module for First Data IBIS system for Latvia
+# WooCommerce FirstData IBIS
+This plugin allows to insert WordPress WooCommerce payment module for First Data IBIS system in Latvia.
 
-Copy the "firstdata" folder to your plugins directory and activate the plugin.
-To configure the payment system go to WooCommerce -> Settings -> Checkout -> First data
+**NB!** We do not represent First Data or have any direct connection with them. We first created this plugin for a client and because sharing is caring we're giving back to WordPress and WooCommerce community. If you have any questions regarding First Data (e.g., certificates), [contact First Data Latvia directly](http://www.firstdata.com/en_lv/home.html).
 
-Documentation is available:
-https://secureshop-test.firstdata.lv/docs/admin_eng.2.10.0.pdf
-https://secureshop-test.firstdata.lv/docs/admin_lat.2.10.0.pdf
+#Installation
+Download .zip folder “firstdata” and copy it to your plugins directory, where you can then activate the plugin. 
+To configure the payment system, go to WooCommerce → Settings → Checkout → First Data.
+
+#Documentation
+ECOMM Integrated Merchant Agent (IMA) Version 2.10.0 Administrator’s Manual in [English](https://secureshop-test.firstdata.lv/docs/admin_eng.2.10.0.pdf) and [Latvian](https://secureshop-test.firstdata.lv/docs/admin_lat.2.10.0.pdf)
+
+#Support
+We're always happy to help you and if you have any questions regarding this plugin, feel free to [send us a message](http://www.turn.lv/kontaktinformacija/). 
