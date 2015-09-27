@@ -1,0 +1,156 @@
+
+
+@media (min-width: 1200px) { 
+
+	.my-borders{
+		border: 1px solid #EEECE9;
+	}
+
+	.header {
+		margin-bottom: 2em;
+	}
+}
+
+
+body {
+	background-color: #F5F4F3;
+}
+
+.container {
+	background: #F5F4F3;
+	margin-bottom: 2em;
+}
+
+.wrapper {
+	background-color: white;
+	margin-top: 2em;
+	padding-bottom: 2em;
+	padding-top: 2em;
+}
+
+.headerbloks{
+	  overflow: hidden;
+}
+
+.line {
+	height: 1px;
+	width: 100%;
+	background-color: #EEECE9;
+	clear: left;
+	margin-bottom: 1em;
+}
+
+.dl-horizontal dt{
+	float: left;
+	text-align: left;
+	color: #999999;
+	font-weight: normal;
+	width: auto;
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+.dl-horizontal dd {
+	margin-left: 120px;
+	text-align: left;
+	margin-bottom: 1em;
+	}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ .square {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+.submitbutton {
+		width: 100%;
+	    background: linear-gradient(180deg, #FF8000, #FE6601);	
+	    color: #FFFFFF;
+		font-size: 18px;
+		height: 42px;
+	    border-radius: 6px;	
+	    border: none;
+	}
+
+.form-group {
+	position: relative;
+}
+
+.icon {
+	width: 25px;
+	top: -8px;
+	right: 0;
+	position: absolute;
+	display: inline-block;
+	}
+
+.iconsvg {
+			height: 0;
+			position: relative;
+			width: 100%;
+			padding-top: (475/475)*100%;
+
+			.svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%
+			}
+}	
+
+.tooltip-inner {
+    width: 350px; 
+}
+
+.splitter {
+	width: 100%;
+	float: left;
+	
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 5px;
+	text-align: center;
+	color: #666666;
+}	
+
+.price {
+	font-size: 24px;
+	line-height: 1.2;
+	position: relative;
+	top: -8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto';
+}
+p, div {
+    font-family: 'Roboto';
+}
+
+/* Works on both */
+.input_s::-webkit-input-placeholder {
+    color: #999999;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Roboto';
+}
+
+.form-control::-moz-placeholder {
+    color: #999999;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Roboto';
+}
+.form-control:-ms-input-placeholder {
+    color: #999999;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Roboto';
+}
