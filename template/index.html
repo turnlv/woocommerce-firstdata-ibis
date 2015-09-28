@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Turn.lv</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/my-css.css">
+	<script src="js/respond.js"></script>	
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+			<div class="row wrapper my-borders">
+				
+				<div class="col-md-8 col-md-offset-2 col-lg-5 col-lg-offset-1 header">
+
+						<div class="headerbloks my-borders">
+							<div class="col-md-10 col-md-offset-2 col-lg-12 col-lg-offset-0">
+								<div class="header">
+									<h2 class="text-uppercase truncate">turn.lv</h2>	
+								</div>
+							</div>
+							<div class="line hidden-lg"></div> <!-- split line! -->
+
+							<div class="col-md-10 col-md-offset-2 col-lg-12 col-lg-offset-0">
+						
+								<div class="details">
+									<div class="row">	
+										<dl class="dl-horizontal">
+										<dt><em>Description</em></dt>
+										<dd>Lorem ipsum dolar sit amet</dd>
+										<dt><em>Amount</em></dt>				  
+										<dd class="price">25.00 / EUR</dd>				  
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="line hidden-lg"></div> <!-- split line! -->
+
+						</div> 
+
+				</div>
+
+				<div class="col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-1 forma">
+					<!-- formas bloks -->
+					<form class="col-md-8 col-md-offset-2 col-lg-12 col-lg-offset-0">
+						<div class="form-group">
+							<label for="inputCardname">Name on card</label>
+							<input type="cardname" class="form-control input-lg square" id="inputCardname">
+						</div>
+						<div class="form-group">
+							<label for="inputCardnumber">Card number</label>
+							<input type="cardnumber" class="form-control input-lg square" maxlength="19" id="inputCardnumber">
+						</div>
+	
+						<div class="form-group">
+							<label for="inputExpdate">Expires</label>
+	
+							<div class="row">
+								<div class="col-xs-5">
+									<input type="expMonth" class="form-control input-lg square input_s" id="inputExpmonth" maxlength="2" placeholder="Month">
+								</div>
+								<div class="col-xs-2">
+									<h3 class="splitter">/</h3>
+								</div>
+								<div class="col-xs-5">
+									<input type="expYear" class="form-control input-lg square input_s" id="inputExpyear" maxlength="4" placeholder="Year">
+								</div>
+							</div>
+						</div>
+	
+						<div class="form-group">
+							<label for="inputcvv">CVV2/CVC2/AMEX</label>
+							<div class="icon">
+								<div class="iconsvg">
+									<div class="svg">
+										<svg xmlns="http://www.w3.org/2000/svg" class="pull-right" data-toggle="tooltip" title="A 3-digit number in reverse italics on the back of your credit card" viewBox="0 0 475 475" enable-background="new 0 0 475 475"><path d="M238 0c-131 0-238 107-238 238s107 237 238 237 237-106 237-237-106-238-237-238zm0 432c-107 0-194-87-194-194s87-194 194-194 194 87 194 194-87 194-194 194zm32-109l-20 9 26-133c3-14-12-29-28-20l-49 27c-9 5-12 17-7 26s17 12 26 7l12-6-25 127c-2 11 7 23 19 23 3 0 6-1 8-2l53-23c10-4 14-15 10-25s-15-14-25-10zm-13-180c15 0 27-12 27-27s-12-27-27-27-27 12-27 27 12 27 27 27z" fill="#FF7600"/></svg>
+									</div>
+								</div>
+							</div>
+							<input type="text" maxlength="4" class="form-control input-lg square" id="inputCvv">			    
+						</div>	  			  
+						<button type="submit" class="btn submitbutton">Proceed with payment</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>	
+	<script src="js/bootstrap.min.js"></script>	
+	<script>
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+	</script>
+</body>
+</html>
