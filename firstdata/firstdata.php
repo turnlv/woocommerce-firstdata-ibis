@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Payment Gateway - FirstData
  * Description: FirstData (LV) payment gateway
  * Author: Aivis Zorgis
- * Version: 1.0.0
+ * Version: 1.0.1
  */
  
 add_action('plugins_loaded', 'firstdata_init');
@@ -22,6 +22,10 @@ function firstdata_init() {
             $this->id           = 'firstdata';
             $this->has_fields   = false;
             $this->method_title = __('FirstData', 'woocommerce');
+			
+			$this->supports   = array(
+               'refunds'
+            );
 			
 			// Priekš ikonas
 			//$this->icon = apply_filters('woocommerce_paypal_icon', PLUGIN_DIR . '/firstdata.png');
@@ -172,7 +176,7 @@ function firstdata_init() {
 				if( $result === 'OK'){ //if (strpos($resp, "RESULT: OK") === true) { ?
 					if ($order->status !== 'completed') {
 						$woocommerce->cart->empty_cart();
-						$order->add_order_note(__('Payment completed', 'woocomerce'));
+						$order->add_order_note(__('Payment completed, Transaction ID: ' , 'woocommerce' ) . $request['trans_id'] );
 						$order->payment_complete();
 						
 						wp_redirect($order->get_checkout_order_received_url());
@@ -187,13 +191,57 @@ function firstdata_init() {
 				
 			}else if( isset($request['close_day'])){
 				$resp = $this->merchant->closeDay(); 
-				var_dump($resp);
+				//var_dump($resp);
 				echo (strstr($resp, 'RESULT:') ? 'OK' : 'NOK');
 			}else{
 				echo 2;
 			}
 			
 			exit();
+		}
+		
+		
+		public function process_refund( $order_id, $amount = null, $reason = '' ) {
+			
+			$order = wc_get_order( $order_id );
+			$transaction_id = null;
+			$amount = $amount * 100; //amount in cents
+			
+			$args = array(
+				'post_id' => $order->id,
+				'approve' => 'approve',
+				'type' => ''
+			);
+			
+			remove_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ) );
+			
+			$comments = get_comments( $args );
+ 
+			foreach ( $comments as $comment ) {
+				if (strpos($comment->comment_content, 'Transaction ID: ') !== false) {
+					$exploded_comment = explode(": ", $comment->comment_content);
+					$transaction_id = $exploded_comment[1];
+				}
+			}
+			
+			add_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ) );
+
+			if ( ! $order || ! $transaction_id ) {
+				return false;
+			}
+			
+			$resp = $this->merchant->reverse(urlencode($transaction_id), $amount);
+			if (substr($resp,8,2) == "OK" OR substr($resp,8,8) == "REVERSED") {
+				// OK
+				$order->add_order_note( __( 'Refund completed. Refund Transaction ID: ' , 'woocommerce' ) . $transaction_id );
+				return true;
+			} else {
+				// FAIL
+				$order->add_order_note( __( 'Refund error. Response data: ' , 'woocommerce' ) . $resp);
+				return false;
+			}
+			
+			return false;
 		}
 		
 		function get_the_user_ip() {
