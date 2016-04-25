@@ -6,6 +6,7 @@ This plugin allows to insert WordPress WooCommerce payment module for First Data
 #Installation
 Download .zip folder “firstdata” and copy it to your plugins directory, where you can then activate the plugin. 
 To configure the payment system, go to WooCommerce → Settings → Checkout → First Data.
+
 In First Data panel provide the following configuration:
 * Success url:  www.your-domain-name.com/?wc-api=wc_gateway_firstdata
 * Fail url: Some url on your site with instructions on what to do in case of payment failure
